@@ -1,14 +1,13 @@
-var ref = new Firebase("https://<YOUR-FIREBASE-APP>.firebaseio.com");
-ref.authWithPassword({
-  email    : "bobtony@firebase.com",
-  password : "correcthorsebatterystaple"
-}, function(error, authData) {
-  if (error) {
-    console.log("Login Failed!", error);
-  } else {
-    console.log("Authenticated successfully with payload:", authData);
-  }
+define(function(require) {
+ var uid = null;
+ return {
+   getUid: function() {
+     console.log("returning", uid);
+     return uid;
+   },
+   setUid: function(newId) {
+     console.log("setting user id to ", newId);
+     uid = newId;
+   }
+ };
 });
-
-
-https://movie-history-djs.firebaseio.com/
