@@ -1,39 +1,52 @@
 require.config({
- baseUrl: "./javascripts",
- paths: {
-   "jquery": "../lib/bower_components/jquery/dist/jquery.min",
-   "firebase": "../lib/bower_components/firebase/firebase",
-   "lodash": "../lib/bower_components/lodash/lodash.min",
-   "hbs": "../lib/bower_components/require-handlebars-plugin/hbs",
-   "bootstrap": "../lib/bower_components/bootstrap/dist/js/bootstrap.min",
-   "q": "../lib/bower_components/q/q"
- },
- shim: {
-   "bootstrap": ["jquery"],
-   "firebase": {
-     exports: "Firebase"
-   }
- }
+  baseUrl: './javascripts',
+  paths: {
+    'jquery': '../lib/bower_components/jquery/dist/jquery.min',
+    'lodash': '../lib/bower_components/lodash/lodash.min',
+    'hbs': '../lib/bower_components/require-handlebars-plugin/hbs',
+    'q': '../lib/bower_components/q/q',
+    'firebase': '../lib/bower_components/firebase/firebase',
+    'bootstrap': '../lib/bower_components/bootstrap/dist/js/bootstrap.min'
+  },
+  shim: {
+    'bootstrap': ['jquery'],
+    'firebase': {
+      exports: 'Firebase'
+    }
+  }
 });
 
-
 require(
- ["dependencies", "auth"], 
- function(​dependencies, auth) {
+ ["dependencies", "auth", "post"], 
+ function(_$_, auth, post) {
  	
- 	createNewUser : function(newEmail, newPassword) {
-		var ref = new Firebase("https://movie-history-djs.firebaseio.com/");
-		ref.authWithPassword({
-		  email    : newEmail, 
-		  password : newPassword
-		}, function(error, authData) {
-		  if (error) {
-		    console.log("Login Failed!", error);
-		  } else {
-		    console.log("Authenticated successfully with payload:", authData);
-		  }
-		});
-	}
-}
+ 	$("#signup").on("click", function(){
+ 		var newEmail = $("#emailInput").val();
+ 		var newPassword= $("#passwordInput").val();
+ 		auth.createNewUser(newEmail, newPassword);
+ 	});
+
+ 	$("#login").on("click", function(){
+ 		var userEmail = $("#emailInput").val();
+ 		var userPassword= $("#passwordInput").val();
+ 		
+ 		auth.loginUser(userEmail, userPassword);
+
+ 		console.log(" Email ", userEmail);
+ 		console.log(" Password ", userPassword);
+
+ 	});
+
+ 	var newUser;
+
+})
+
+
+
+
+
+
+
+
 
 
