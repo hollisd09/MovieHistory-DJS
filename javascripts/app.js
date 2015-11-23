@@ -18,8 +18,8 @@ require.config({
 
 require(
 
- ["dependencies", "auth", "ajax", "find"], 
- function(_$_, auth, ajax, find) {
+ ["dependencies", "auth", "ajax"], 
+ function(_$_, auth, ajax) {
  	
  	$("#signup").on("click", function(){
  		var newEmail = $("#emailInput").val();
@@ -38,6 +38,55 @@ require(
  		console.log(" Password ", userPassword);
 
  	});
+
+  // MAYBE THIS WILL SHOW AND HIDE CARDS
+    $(document).ready(function() {
+      $("#splashPage").removeClass("hidden");
+      $("#splashPage").show();
+      $("#watchedMovies").hide();
+      $("#unwatchedMovies").hide();
+      $("#searchMovies").hide();
+      $("#findMovies").hide();
+    })
+
+
+    $("body").on("click", ".watched", function() {
+        $("#watchedMovies").removeClass("hidden");
+        $("#watchedMovies").show();
+        $("#unwatchedMovies").hide();
+        $("#splashPage").hide();
+        $("#searchMovies").hide();
+        $("#findMovies").hide();
+      });
+
+  $("body").on("click", ".unwatched", function() {
+        $("#unwatchedMovies").removeClass("hidden");
+        $("#unwatchedMovies").show();
+        $("#watchedMovies").hide();
+        $("#splashPage").hide();
+        $("#searchMovies").hide();
+        $("#findMovies").hide();
+      });
+
+  $("body").on("click", "#searchMoviesButton", function() {
+        $("#searchMovies").removeClass("hidden");
+        $("#searchMovies").show();
+        $("#watchedMovies").hide();
+        $("#splashPage").hide();
+        $("#unwatchedMovies").hide();
+        $("#findMovies").hide();
+        console.log("button works?");
+      });
+
+   $("body").on("click", "#findMoviesButton", function() {
+        $("#findMovies").removeClass("hidden");
+        $("#findMovies").show();
+        $("#watchedMovies").hide();
+        $("#splashPage").hide();
+        $("#unwatchedMovies").hide();
+        $("#searchMovies").hide();
+        console.log("button works?");
+      });
 
 })
 
