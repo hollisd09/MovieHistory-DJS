@@ -23,13 +23,13 @@
     
     <!-- BEGINNING OF NAVIGATION -->
         <navigation id="navBar">
-           <input type="text" placeholder="Search movies...">
+           <input id="searchMovies" type="text" placeholder="Search movies...">
             <a href="#" id="logoutLink">Logout</a>
         </navigation>
     <!-- END OF NAVIGATION -->
 
     <!-- ALL, UNWATCHED, WATCHED, FAVORITES LINKS -->
-        <div id="pageLinks">
+        <div id="pageLinks" class="hidden">
             <a href="#" id="allLink">All</a> |
             <a href="#" id="unwatchedLink">Unwatched</a> |
             <a href="#" id="watchedLink">Watched</a> |
@@ -60,8 +60,6 @@
             <h1>THIS IS THE FAVORITE MOVIES PAGE</h1>
         </div>
 
-
-    
     </section>
 <!-- END OF MAIN CONTAINER SECTION -->
 
@@ -69,3 +67,5 @@
 <script data-main="javascripts/app" src="lib/bower_components/requirejs/require.js"></script>
 </body>
 </html>
+
+    

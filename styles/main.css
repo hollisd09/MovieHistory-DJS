@@ -3,8 +3,8 @@ body {
   color: #333;
 }
 
-.hidden {
-	visibility: none;
+.js #flash {
+	display: none;
 }
 
 /*# sourceMappingURL=main.css.map */
