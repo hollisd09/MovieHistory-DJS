@@ -18,7 +18,7 @@ require(
                 console.log(oData);
                 $Container.find('.title').text(oData.Title);
                 // $Container.find('.plot').text(oData.Plot);
-                $Container.find('.poster').html('<img src="' + oData.Poster + '"/>');
+                $Container.find('.poster').html('<img src="' + oData.Poster + '7c212437"/>');
                 // $Container.find('.year').text(oData.Year);
                 $Container.show();
             }
