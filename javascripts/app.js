@@ -41,17 +41,16 @@ require(
 
   // THIS WILL SHOW AND HIDE CARDS
     $(document).ready(function() {
-      $("#splashPage").removeClass("hidden");
       $("#splashPage").show();
       $("#watchedMovies").hide();
       $("#unwatchedMovies").hide();
       $("#searchMovies").hide();
       $("#findMovies").hide();
+      $("#pageLinks").hide();
     })
 
 
     $("body").on("click", ".watched", function() {
-        $("#watchedMovies").removeClass("hidden");
         $("#watchedMovies").show();
         $("#unwatchedMovies").hide();
         $("#splashPage").hide();
@@ -60,7 +59,6 @@ require(
       });
 
   $("body").on("click", ".unwatched", function() {
-        $("#unwatchedMovies").removeClass("hidden");
         $("#unwatchedMovies").show();
         $("#watchedMovies").hide();
         $("#splashPage").hide();
@@ -69,7 +67,6 @@ require(
       });
 
   $("body").on("click", "#searchMoviesButton", function() {
-        $("#searchMovies").removeClass("hidden");
         $("#searchMovies").show();
         $("#watchedMovies").hide();
         $("#splashPage").hide();
@@ -78,13 +75,11 @@ require(
       });
 
    $("body").on("click", "#findMoviesButton", function() {
-        $("#findMovies").removeClass("hidden");
         $("#findMovies").show();
         $("#watchedMovies").hide();
         $("#splashPage").hide();
         $("#unwatchedMovies").hide();
         $("#searchMovies").hide();
-        console.log("button works?");
       });
 
    $("body").on("click", ".add", function() {
