@@ -19,12 +19,6 @@ return{
       deferred.reject(error);
     }); 
     
-    } // Closes postToFirebase
-
-//Finish getLogin function
-  
-// var userID = userInfo.id;
-
-  //Closes out login
+    } 
   };
 });
