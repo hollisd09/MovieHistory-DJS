@@ -6,53 +6,64 @@
         <link rel="stylesheet" type="text/css" href="styles/main.css">
 </head>
 <body>
-
-	<navigation id="navBar">
-		<button id="findMoviesButton">Find Movies</button>
-		<button id="searchMoviesButton">Search My Movies</button>
-		<a href="#" id="logoutLink">Logout</a>
-	</navigation>
-
- <!-- SPLASH PAGE -->
-    <div id="splashPage" class="hidden">
-        <h1>THIS IS THE SPLASH PAGE</h1>
-        <input id="emailInput" type="text" placeholder="Input Email">
-        <input id="passwordInput" type="text" placeholder="Input Password">
-        <button id="signup">Signup</button>
-        <button id="login">Login</button>
-    </div>
-
-<!-- SEARCH MY MOVIES PAGE -->
-    <div id="searchMovies" class="hidden">
-        <h1>THIS IS THE SEARCH MOVIES PAGE</h1>
-        <a href="#" class="watched">Watched</a>
-        <a href="#" class="unwatched">Unwatched</a>
-    </div>
-
-<!-- WATCHED MOVIES -->
-    <div id="watchedMovies" class="hidden">
-        <h1>THIS IS THE WATCHED MOVIES PAGE</h1>
-        <a href="#" class="watched">Watched</a>
-        <a href="#" class="unwatched">Unwatched</a>
-    </div>
-
-<!-- UNWATCHED MOVIES -->
-    <div id="unwatchedMovies" class="hidden">
-        <h1>THIS IS THE UNWATCHED MOVIES PAGE</h1>
-        <a href="#" class="watched">Watched</a>
-        <a href="#" class="unwatched">Unwatched</a>
-    </div>
-
-<!-- FIND MOVIES -->
-    <div id="findMovies" class="hidden">
-    <h1>THIS IS THE FIND MOVIES PAGE</h1>
-        <input class="searchByTitle" type="text" placeholder="Search by Title">
-        <button class="submit">Submit</button>
-        <div id="putMoviesHere">
-            <h3 class="title">Title</h3>
-            <span class="poster">Poster</span>
+ <!-- BEGIN SPLASH PAGE -->
+    <section id="entry-screen">
+        <div id="splashPage" class="hidden">
+            <h1>THIS IS THE SPLASH PAGE</h1>
+            <input id="emailInput" type="text" placeholder="Input Email">
+            <input id="passwordInput" type="text" placeholder="Input Password">
+            <button id="signup">Signup</button>
+            <button id="login">Login</button>
         </div>
-    </div>
+    </section>
+<!-- END SPLASH PAGE -->
+
+<!-- BEGINNING OF MAIN CONTAINER SECTION -->
+    <section id="main-container">     
+    
+    <!-- BEGINNING OF NAVIGATION -->
+        <navigation id="navBar">
+           <input type="text" placeholder="Search movies...">
+            <a href="#" id="logoutLink">Logout</a>
+        </navigation>
+    <!-- END OF NAVIGATION -->
+
+    <!-- ALL, UNWATCHED, WATCHED, FAVORITES LINKS -->
+        <div id="pageLinks">
+            <a href="#" id="allLink">All</a> |
+            <a href="#" id="unwatchedLink">Unwatched</a> |
+            <a href="#" id="watchedLink">Watched</a> |
+            <a href="#" id="favoriteLink">Favorites</a>
+        </div>
+
+    <!-- ALL MOVIES -->
+        <div id="allMovies" class="hidden">
+        <h1>THIS IS THE ALL MOVIES PAGE</h1>
+            <div id="allMoviesHere">
+                <h3 class="title">Title</h3>
+                <span class="poster">Poster</span>
+            </div>
+        </div>
+
+    <!-- UNWATCHED MOVIES -->
+        <div id="unwatchedMovies" class="hidden">
+            <h1>THIS IS THE UNWATCHED MOVIES PAGE</h1>
+        </div>
+    
+    <!-- WATCHED MOVIES -->
+        <div id="watchedMovies" class="hidden">
+            <h1>THIS IS THE WATCHED MOVIES PAGE</h1>
+        </div>
+
+    <!-- FAVORITE MOVIES -->
+        <div id="favoriteMovies" class="hidden">
+            <h1>THIS IS THE FAVORITE MOVIES PAGE</h1>
+        </div>
+
+
+    
+    </section>
+<!-- END OF MAIN CONTAINER SECTION -->
 
 
 <script data-main="javascripts/app" src="lib/bower_components/requirejs/require.js"></script>
