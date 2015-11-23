@@ -18,8 +18,8 @@ require.config({
 
 require(
 
- ["dependencies", "auth", "ajax", "find"], 
- function(_$_, auth, ajax, find) {
+ ["dependencies", "auth", "ajax", "find", "populate-dom"], 
+ function(_$_, auth, ajax, find, populateDom) {
  	
  	$("#signup").on("click", function(){
  		var newEmail = $("#emailInput").val();
@@ -87,6 +87,15 @@ require(
         $("#searchMovies").hide();
         console.log("button works?");
       });
+
+   $("body").on("click", ".add", function() {
+      console.log(find)
+      var title = $(this).attr("title");
+      var image = $(this).attr("image");
+      auth.movieAdded(title, image)
+      // populateDom.postToFindMovies(find.oData)
+   });
+
 
 })
 

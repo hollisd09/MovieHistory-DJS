@@ -1,8 +1,10 @@
 require(
 
- ["dependencies", "auth", "ajax", "find"], 
- function(_$_, auth, ajax, find) {
+ ["dependencies", "auth", "ajax", "populate-dom"], 
+ function(_$_, auth, ajax, populateDom) {
 
+    var allResults = {};
+    var i, j;
     var $Form = $('#findMovies'), $Container = $('#putMoviesHere');
     $Container.hide();
 
@@ -17,11 +19,20 @@ require(
                 oData = $.parseJSON(p_oXHR.responseText);
                 console.log(oData);
                 $Container.find('.title').text(oData.Title);
-                // $Container.find('.plot').text(oData.Plot);
-                $Container.find('.poster').html('<img src="' + oData.Poster + '7c212437"/>');
-                // $Container.find('.year').text(oData.Year);
                 $Container.show();
+
+                for (i = 0; i < oData.Search.length; i++) {
+                    var something = oData.Search[i]["imdbID"];
+                    if (oData.Search[i]["Poster"] === "N/A") {
+                        console.log("Not Available");
+                    } else {
+                        oData.Search[i].actualImage = 'http://img.omdbapi.com/?i=' + something + '&apikey=7c212437';
+                        populateDom.postToFindMovies(oData.Search[i])
+                        // $Container.find('.poster').html();
+                    }
+
+                }
             }
-        });    
-    });
+        });
+    })
 });
