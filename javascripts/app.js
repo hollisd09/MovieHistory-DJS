@@ -17,8 +17,8 @@ require.config({
 });
 
 require(
- ["dependencies", "auth", "post"], 
- function(_$_, auth, post) {
+ ["dependencies", "auth", "post", "templates"], 
+ function(_$_, auth, post, templates) {
  	
  	$("#signup").on("click", function(){
  		var newEmail = $("#emailInput").val();
@@ -36,8 +36,6 @@ require(
  		console.log(" Password ", userPassword);
 
  	});
-
- 	var newUser;
 
 })
 

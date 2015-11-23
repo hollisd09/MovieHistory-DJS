@@ -1,26 +1,44 @@
-<!DOCTYPE html>
-<head>
-	<title></title>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">	<title></title>
+        <title>Movie History</title>
+        <link rel="stylesheet" type="text/css" href="styles/main.css">
 </head>
 <body>
 
-	<navivation id="navBar">
-		<button id="findMovies">Find Movies</button>
-		<button id="searchMovies">Search My Movies</button>
-		<a href="#" id="logout">Logout</a>
-	</navivation>
+	<navigation id="navBar">
+		<button id="findMoviesButton">Find Movies</button>
+		<button id="searchMoviesButton">Search My Movies</button>
+		<a href="#" id="logoutLink">Logout</a>
+	</navigation>
 
+ <!-- SPLASH PAGE -->
+    <div id="splashPage" class="hidden">
+        <h1>THIS IS THE SPLASH PAGE</h1>
+    </div>
 
-	<div>
-		<h2>Music History</h2>
-			<label for="emailEnter">E-mail:</label>
-			<input type="text" id="emailInput" placeholder="Enter E-mail">
-			<label for="passwordEnter">Password:</label>
-			<input type="text" id="passwordInput" placeholder="Enter Password">
+<!-- SEARCH MY MOVIES PAGE -->
+    <div id="searchMovies" class="hidden">
+        <h1>THIS IS THE SEARCH MOVIES PAGE</h1>
+        <a href="#" class="watched">Watched</a>
+        <a href="#" class="unwatched">Unwatched</a>
+    </div>
 
-			<button id="signup">New User</button>
-			<button id="login">Login</button>
-	</div>
+<!-- WATCHED MOVIES -->
+    <div id="watchedMovies" class="hidden">
+        <h1>THIS IS THE WATCHED MOVIES PAGE</h1>
+        <a href="#" class="watched">Watched</a>
+        <a href="#" class="unwatched">Unwatched</a>
+    </div>
+
+<!-- UNWATCHED MOVIES -->
+    <div id="unwatchedMovies" class="hidden">
+        <h1>THIS IS THE UNWATCHED MOVIES PAGE</h1>
+        <a href="#" class="watched">Watched</a>
+        <a href="#" class="unwatched">Unwatched</a>
+    </div>
+
 
 <script data-main="javascripts/app" src="lib/bower_components/requirejs/require.js"></script>
 </body>
