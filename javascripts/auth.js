@@ -1,6 +1,7 @@
 define(function(require) {
 	var ajax = require("ajax");
 	var uid = null;
+	var find = require("find");
 
 
  return {
@@ -13,9 +14,13 @@ define(function(require) {
 		  if (error) {
 		    console.log("Login Failed!", error);
 		  } else {
-		  var uid = authData.uid;
+		  uid = authData.uid;
+		  authData.email = newEmail;
+		  var url = "https://movie-history-djs.firebaseio.com/users/" + uid
+		  var ref2 = new Firebase(url)
 		  console.log("authData", authData);
-		  ajax.postToFirebase(authData, newEmail, uid);
+		  ref2.set(authData);
+		  // ajax.postToFirebase(authData, newEmail, uid);
 		  } 
 		});
 	},
@@ -26,15 +31,32 @@ define(function(require) {
 			email   : userEmail,
 			password: userPassword
 		}, function(error, authData) {
+
 		  if (error) {
 		    console.log("Login Failed!", error);
 		  } else {
+		  	uid = authData.uid;
 
-		 var fbRef = new Firebase("https://movie-history-djs.firebaseio.com/users/" + authData.uid);
-     	   console.log("returning", uid);
-		   console.log("Authenticated successfully with payload:", authData);
+			var fbRef = new Firebase("https://movie-history-djs.firebaseio.com/users/" + authData.uid);
+	     	console.log("returning", uid);
+			console.log("Authenticated successfully with payload:", authData);
 		  } 
 		});
-		}
-	}
+	},
+
+	movieAdded: function(title, image) {
+		var userClickedAdd = new Firebase('https://movie-history-djs.firebaseio.com/users/' + uid + '/favorites/' + title);
+      
+	        userClickedAdd.set({
+	        					  	title: title,
+	        					  	poster: image
+	        					   });
+		    // We've appended a new message to the message_list location.
+      
+	    // var path = userAddedPoster.toString();
+	       // path will be something like
+           // 'https://movie-history-djs.firebaseio.com/users-favorites'
+    }
+      
+  };
 });
