@@ -5,7 +5,7 @@ require(
 
     var allResults = {};
     var i, j;
-    var $Form = $('#findMovies'), $Container = $('#putMoviesHere');
+    var $Form = $('#findMovies'), $Container = $('#allMoviesHere');
     $Container.hide();
 
      $Form.on("click", ".submit", function(p_oEvent){

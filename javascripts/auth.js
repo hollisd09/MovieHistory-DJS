@@ -52,8 +52,7 @@ define(function(require) {
 	        					  	poster: image
 	        					   });
 		    // We've appended a new message to the message_list location.
-      
-	    // var path = userAddedPoster.toString();
+	    	// var path = userAddedPoster.toString();
 	       // path will be something like
            // 'https://movie-history-djs.firebaseio.com/users-favorites'
     }

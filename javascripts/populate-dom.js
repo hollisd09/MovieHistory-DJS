@@ -8,9 +8,8 @@ define(function(require) {
         postToFindMovies: function(oDataInfo){
 
             require(['hbs!../templates/find-movies'], function(findMoviesTemp) {
-                console.log('maybe?', oDataInfo);
-            	$("#putMoviesHere").append(findMoviesTemp(oDataInfo));
-                console.log("This is working");
+            	$("#allMoviesHere").append(findMoviesTemp(oDataInfo));
+
             });
         },
 	}
