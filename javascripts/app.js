@@ -17,8 +17,8 @@ require.config({
 });
 
 require(
- ["dependencies", "auth", "post"], 
- function(_$_, auth, post) {
+ ["dependencies", "auth", "ajax", "find"], 
+ function(_$_, auth, ajax, find) {
  	
  	$("#signup").on("click", function(){
  		var newEmail = $("#emailInput").val();
@@ -32,12 +32,11 @@ require(
  		
  		auth.loginUser(userEmail, userPassword);
 
+    console.log(" auth ", auth);
  		console.log(" Email ", userEmail);
  		console.log(" Password ", userPassword);
 
  	});
-
- 	var newUser;
 
 })
 
