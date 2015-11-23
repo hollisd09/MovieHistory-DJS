@@ -45,48 +45,47 @@ require(
       $("#splashPage").show();
       $("#watchedMovies").hide();
       $("#unwatchedMovies").hide();
-      $("#searchMovies").hide();
-      $("#findMovies").hide();
+      $("#allMovies").hide();
+      $("#favoriteMovies").hide();
     })
 
 
-    $("body").on("click", ".watched", function() {
+    $("body").on("click", "#watchedLink", function() {
         $("#watchedMovies").removeClass("hidden");
         $("#watchedMovies").show();
         $("#unwatchedMovies").hide();
         $("#splashPage").hide();
-        $("#searchMovies").hide();
-        $("#findMovies").hide();
+        $("#allMovies").hide();
+        $("#favoriteMovies").hide();
       });
 
-  $("body").on("click", ".unwatched", function() {
+  $("body").on("click", "#unwatchedLink", function() {
         $("#unwatchedMovies").removeClass("hidden");
         $("#unwatchedMovies").show();
         $("#watchedMovies").hide();
         $("#splashPage").hide();
-        $("#searchMovies").hide();
-        $("#findMovies").hide();
+        $("#allMovies").hide();
+        $("#favoriteMovies").hide();
       });
 
-  $("body").on("click", "#searchMoviesButton", function() {
-        $("#searchMovies").removeClass("hidden");
-        $("#searchMovies").show();
+
+   $("body").on("click", "#allLink", function() {
+        $("#allMovies").removeClass("hidden");
+        $("#allMovies").show();
         $("#watchedMovies").hide();
         $("#splashPage").hide();
         $("#unwatchedMovies").hide();
-        $("#findMovies").hide();
-        console.log("button works?");
+        $("#favoriteMovies").hide();
       });
 
-   $("body").on("click", "#findMoviesButton", function() {
-        $("#findMovies").removeClass("hidden");
-        $("#findMovies").show();
-        $("#watchedMovies").hide();
-        $("#splashPage").hide();
-        $("#unwatchedMovies").hide();
-        $("#searchMovies").hide();
-        console.log("button works?");
-      });
+    $("body").on("click", "#favoriteLink", function() {
+      $("#favoriteMovies").removeClass("hidden");
+      $("#favoriteMovies").show();
+      $("#watchedMovies").hide();
+      $("#splashPage").hide();
+      $("#unwatchedMovies").hide();
+      $("#allMovies").hide();
+    });
 
    $("body").on("click", ".add", function() {
       console.log(find)
