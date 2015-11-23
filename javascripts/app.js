@@ -42,44 +42,45 @@ require(
   // THIS WILL SHOW AND HIDE CARDS
     $(document).ready(function() {
       $("#splashPage").show();
-      $("#watchedMovies").hide();
+      $("#allMovies").hide();
       $("#unwatchedMovies").hide();
-      $("#searchMovies").hide();
-      $("#findMovies").hide();
+      $("#watchedMovies").hide();
+      $("#favoriteMovies").hide();
       $("#pageLinks").hide();
-    })
+      $("#navBar").hide();
+    });
 
 
-    $("body").on("click", ".watched", function() {
+    $("body").on("click", "#allLink", function() {
+        $("#allMovies").show();
+        $("#unwatchedMovies").hide();
+        $("#splashPage").hide();
+        $("#watchedMovies").hide();
+        $("#favoriteMovies").hide();
+      });
+
+  $("body").on("click", "#unwatchedLink", function() {
+        $("#unwatchedMovies").show();
+        $("#allMovies").hide();
+        $("#splashPage").hide();
+        $("#watchedMovies").hide();
+        $("#favoriteMovies").hide();
+      });
+
+  $("body").on("click", "#watchedLink", function() {
         $("#watchedMovies").show();
         $("#unwatchedMovies").hide();
         $("#splashPage").hide();
-        $("#searchMovies").hide();
-        $("#findMovies").hide();
+        $("#allMovies").hide();
+        $("#favoriteMovies").hide();
       });
 
-  $("body").on("click", ".unwatched", function() {
-        $("#unwatchedMovies").show();
-        $("#watchedMovies").hide();
-        $("#splashPage").hide();
-        $("#searchMovies").hide();
-        $("#findMovies").hide();
-      });
-
-  $("body").on("click", "#searchMoviesButton", function() {
-        $("#searchMovies").show();
+   $("body").on("click", "#favoriteLink", function() {
+        $("#favoriteMovies").show();
         $("#watchedMovies").hide();
         $("#splashPage").hide();
         $("#unwatchedMovies").hide();
-        $("#findMovies").hide();
-      });
-
-   $("body").on("click", "#findMoviesButton", function() {
-        $("#findMovies").show();
-        $("#watchedMovies").hide();
-        $("#splashPage").hide();
-        $("#unwatchedMovies").hide();
-        $("#searchMovies").hide();
+        $("#allMovies").hide();
       });
 
    $("body").on("click", ".add", function() {
