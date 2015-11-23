@@ -18,8 +18,8 @@ require.config({
 
 require(
 
- ["dependencies", "auth", "ajax"], 
- function(_$_, auth, ajax) {
+ ["dependencies", "auth", "ajax", "find"], 
+ function(_$_, auth, ajax, find) {
  	
  	$("#signup").on("click", function(){
  		var newEmail = $("#emailInput").val();
@@ -39,7 +39,7 @@ require(
 
  	});
 
-  // MAYBE THIS WILL SHOW AND HIDE CARDS
+  // THIS WILL SHOW AND HIDE CARDS
     $(document).ready(function() {
       $("#splashPage").removeClass("hidden");
       $("#splashPage").show();
