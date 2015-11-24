@@ -104,15 +104,13 @@ require(
     $("body").on("click", "#logoutLink", function(){
       var ref = new Firebase("https://movie-history-djs.firebaseio.com/");
       ref.unauth();
-      cleanTemp();
-
-      // $("#splashPage").show();
-      // $("#allMovies").hide();
-      // $("#unwatchedMovies").hide();
-      // $("#watchedMovies").hide();
-      // $("#favoriteMovies").hide();
-      // $("#pageLinks").hide();
-      // $("#navBar").hide();
+      $("#splashPage").show();
+      $("#allMovies").hide();
+      $("#unwatchedMovies").hide();
+      $("#watchedMovies").hide();
+      $("#favoriteMovies").hide();
+      $("#pageLinks").hide();
+      $("#navBar").hide();
 
     });
 
