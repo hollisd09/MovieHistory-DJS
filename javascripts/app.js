@@ -19,7 +19,8 @@ require.config({
 require(
  ["dependencies", "auth", "ajax", "find", "populate-dom"], 
  function(_$_, auth, ajax, find, populateDom) {
- 	
+
+
 //When you click signup
  	$("#signup").on("click", function(){
 //Pull the information from the inputs
@@ -71,6 +72,7 @@ require(
         $("#splashPage").hide();
         $("#watchedMovies").hide();
         $("#favoriteMovies").hide();
+        // populateDom.postToFindMovies(updatedUserInfo.unwatched)
       });
 
 //Show and hide cards when the unwatched page is clicked
@@ -117,12 +119,20 @@ require(
 
 //Add button
    $("body").on("click", ".add", function() {
-      console.log(find)
+      var title = $(this).attr("title");
+      var image = $(this).attr("image");
+      auth.movieAdded(title, image)
+      // populateDom.postToFindMovies(usersRef)
+   });
+
+//Watched button
+   $("body").on("click", ".watched", function() {
       var title = $(this).attr("title");
       var image = $(this).attr("image");
       auth.movieAdded(title, image)
       // populateDom.postToFindMovies(find.oData)
    });
+
 
 });
 

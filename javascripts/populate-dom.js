@@ -12,5 +12,29 @@ define(function(require) {
 
             });
         },
+
+        postToSplashPage: function(oDataInfo){
+
+            require(['hbs!../templates/splash-page'], function(findMoviesTemp) {
+            	$("#splashPage").append(findMoviesTemp(oDataInfo));
+
+            });
+        },
+
+        postToUnwatchedMovies: function(oDataInfo){
+
+            require(['hbs!../templates/unwatched-movies'], function(findMoviesTemp) {
+            	$("#unwatchedMovies").append(findMoviesTemp(oDataInfo));
+
+            });
+        },
+
+        postToWatchedMovies: function(oDataInfo){
+
+            require(['hbs!../templates/watched-movies'], function(findMoviesTemp) {
+            	$("#watchedMovies").append(findMoviesTemp(oDataInfo));
+
+            });
+        },
 	}
 });
