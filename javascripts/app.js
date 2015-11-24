@@ -25,6 +25,12 @@ require(
  		var newEmail = $("#emailInput").val();
  		var newPassword= $("#passwordInput").val();
  		auth.createNewUser(newEmail, newPassword);
+    $("#navBar").show();
+    $("#allMovies").show();
+    $("#unwatchedMovies").hide();
+    $("#splashPage").hide();
+    $("#watchedMovies").hide();
+    $("#favoriteMovies").hide();
  	});
 
  	$("#login").on("click", function(){
@@ -36,6 +42,14 @@ require(
     console.log(" auth ", auth);
  		console.log(" Email ", userEmail);
  		console.log(" Password ", userPassword);
+
+    $("#navBar").show();
+    $("#allMovies").show();
+    $("#unwatchedMovies").hide();
+    $("#splashPage").hide();
+    $("#watchedMovies").hide();
+    $("#favoriteMovies").hide();
+      
 
  	});
 
@@ -53,6 +67,7 @@ require(
 
     $("body").on("click", "#allLink", function() {
         $("#allMovies").show();
+        $("#navBar").show();
         $("#unwatchedMovies").hide();
         $("#splashPage").hide();
         $("#watchedMovies").hide();
