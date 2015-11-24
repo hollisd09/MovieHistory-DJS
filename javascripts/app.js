@@ -59,7 +59,7 @@ require(
 
   // THIS WILL SHOW AND HIDE CARDS ON READY
     $(document).ready(function() {
-      
+
       $("#splashPage").show();
       $("#allMovies").hide();
       $("#unwatchedMovies").hide();
@@ -125,14 +125,16 @@ require(
    $("body").on("click", ".add", function() {
       var title = $(this).attr("title");
       var image = $(this).attr("image");
-      auth.movieAdded(title, image)
+      auth.movieAddedtoAll(title, image);
+      auth.movieAddedUnwatched(title, image);
    });
 
 //Watched button
    $("body").on("click", ".watched", function() {
       var title = $(this).attr("title");
       var image = $(this).attr("image");
-      auth.movieAdded(title, image)
+      auth.movieAdded(title, image);
+      
    });
 
 

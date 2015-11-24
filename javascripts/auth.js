@@ -63,7 +63,7 @@ define(function(require) {
 
 	toUpdateUserInfo: toUpdateUserInfo,
 
-	movieAdded: function(title, image) {
+	movieAddedUnwatched: function(title, image) {
 		var userClickedAdd = new Firebase('https://movie-history-djs.firebaseio.com/users/' + uid + '/unwatched/' + title);
       
 	        userClickedAdd.set({
@@ -76,13 +76,31 @@ define(function(require) {
            // 'https://movie-history-djs.firebaseio.com/users-favorites'
     },
 
-    movieAddedUnwatched: function(title, image) {
+    movieAddedFavorites: function(title, image) {
 		var userClickedAdd = new Firebase('https://movie-history-djs.firebaseio.com/users/' + uid + '/favorites/' + title);
       
 	        userClickedAdd.set({
 	        					  	title: title,
 	        					  	poster: image
 	        					   });
-    }  
+    },
+
+    movieAddedtoAll: function(title, image) {
+		var userClickedAdd = new Firebase('https://movie-history-djs.firebaseio.com/users/' + uid + '/all/' + title);
+      
+	        userClickedAdd.set({
+	        					  	title: title,
+	        					  	poster: image
+	        					   });
+    },    
+
+    movieAddedtoWatched: function(title, image) {
+		var userClickedAdd = new Firebase('https://movie-history-djs.firebaseio.com/users/' + uid + '/watched/' + title);
+      
+	        userClickedAdd.set({
+	        					  	title: title,
+	        					  	poster: image
+	        					   });
+    }    
   };
 });
