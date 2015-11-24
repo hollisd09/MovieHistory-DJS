@@ -117,13 +117,12 @@ require(
 
 //Add button
    $("body").on("click", ".add", function() {
-      console.log(find)
+      console.log("find", find);
       var title = $(this).attr("title");
       var image = $(this).attr("image");
       auth.movieAdded(title, image)
       // populateDom.postToFindMovies(find.oData)
    });
-
 });
 
 
