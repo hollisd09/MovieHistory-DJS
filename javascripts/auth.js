@@ -2,6 +2,12 @@ define(function(require) {
 	var ajax = require("ajax");
 	var uid = null;
 	var find = require("find");
+    function postToUnwatchedMovies(oDataInfo) {
+            require(['hbs!../templates/unwatched-movies'], function(unwatchedMoviesTemp) {
+            	console.log("sending to unwatchedMovies");
+            	$("#unwatchedMovies").append(unwatchedMoviesTemp(oDataInfo));
+		});
+      }
 
 
  return {
@@ -45,17 +51,23 @@ define(function(require) {
 	},
 
 	movieAdded: function(title, image) {
-		var userClickedAdd = new Firebase('https://movie-history-djs.firebaseio.com/users/' + uid + '/favorites/' + title);
-      
-	        userClickedAdd.set({
-	        					  	title: title,
-	        					  	poster: image
-	        					   });
+		var userClickedAdd = new Firebase('https://movie-history-djs.firebaseio.com/users/' + uid + '/unwatched/' + title);
+		var movieObject = {
+	        				title: title,
+	        				poster: image
+	        			  };
+        userClickedAdd.set(movieObject, function() {
+        					   	console.log(movieObject);
+        					   	postToUnwatchedMovies(movieObject);
+								
+								require(['hbs!../templates/unwatched-movies'], function(findMoviesTemp) {
+								$("#unwatch-movies").append(findMoviesTemp(movieObject));
+        					   });
+	   });
 		    // We've appended a new message to the message_list location.
 	    	// var path = userAddedPoster.toString();
 	       // path will be something like
            // 'https://movie-history-djs.firebaseio.com/users-favorites'
-    }
       
-  };
-});
+  }
+};

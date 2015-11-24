@@ -6,7 +6,6 @@ define(function(require) {
 	return {
 
         postToFindMovies: function(oDataInfo){
-
             require(['hbs!../templates/all-movies'], function(findMoviesTemp) {
             	$("#allMoviesHere").append(findMoviesTemp(oDataInfo));
 

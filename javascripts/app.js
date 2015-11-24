@@ -60,8 +60,7 @@ require(
     $("#splashPage").hide();
     $("#watchedMovies").hide();
     $("#favoriteMovies").hide();
-      
-
+    
  	});
 
   // THIS WILL SHOW AND HIDE CARDS ON READY
@@ -132,8 +131,8 @@ require(
       console.log("find", find);
       var title = $(this).attr("title");
       var image = $(this).attr("image");
-      auth.movieAdded(title, image)
-      // populateDom.postToFindMovies(find.oData)
+      auth.movieAdded(title, image);
+        
    });
 });
 
