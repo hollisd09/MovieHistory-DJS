@@ -91,8 +91,16 @@ require(
       // populateDom.postToFindMovies(find.oData)
    });
 
+//navBar begun not finished
+   $("navBar").on("keypress", function() {
+    if ( event.which == 13 ) {
+      console.log("Entered");
+    event.preventDefault();
+  }
 
-})
+   });
+ });
+
 
 
 
