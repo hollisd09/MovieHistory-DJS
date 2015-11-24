@@ -4,6 +4,20 @@ define(function(require) {
 	var find = require("find");
 
 
+	var toUpdateUserInfo = function(){
+		var myFirebaseRef = new Firebase("https://movie-history-djs.firebaseio.com/users/" + uid);
+	    // Listen for when anything changes on the "users" key
+	  	myFirebaseRef.on("value", function(snapshot) {
+	  	console.log("snapshot", snapshot);
+	    // Store the entire user-uid key in a local variable
+	  	var updatedUserInfo = snapshot.val();
+	  	console.log("updatedUserInfo", updatedUserInfo);
+	  	
+	  	return updatedUserInfo;
+
+	  	});
+	}
+
  return {
  	createNewUser : function(newEmail, newPassword) {
 		var ref = new Firebase("https://movie-history-djs.firebaseio.com/");
@@ -40,21 +54,15 @@ define(function(require) {
 			var fbRef = new Firebase("https://movie-history-djs.firebaseio.com/users/" + authData.uid);
 	     	console.log("returning", uid);
 			console.log("Authenticated successfully with payload:", authData);
+			
+			updatedUserInfo = toUpdateUserInfo();
+  			// console.log("updatedUserInfo", updatedUserInfo);
 		  } 
 		});
 	},
 
-	toUpdateUserInfo: function(updatedUserInfo){
-		var myFirebaseRef = new Firebase("https://movie-history-djs.firebaseio.com/users/" + uid + "/");
-	    // Listen for when anything changes on the "songs" key
-	  	myFirebaseRef.on("value", function(snapshot) {
-	    // Store the entire songs key in a local variable
-	  	var updatedUserInfo = snapshot.val();
+	toUpdateUserInfo: toUpdateUserInfo,
 
-	  	console.log("updatedUserUnwatched!!", updatedUserInfo.unwatched);
-	  	});
-	  },
-	  
 	movieAdded: function(title, image) {
 		var userClickedAdd = new Firebase('https://movie-history-djs.firebaseio.com/users/' + uid + '/unwatched/' + title);
       

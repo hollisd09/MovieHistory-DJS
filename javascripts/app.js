@@ -18,8 +18,10 @@ require.config({
 
 require(
  ["dependencies", "auth", "ajax", "find", "populate-dom"], 
- function(_$_, auth, ajax, find, populateDom) {
-
+  function(_$_, auth, ajax, find, populateDom) {
+  var updatedUserInfo;
+  // updatedUserInfo = auth.toUpdateUserInfo();
+  // console.log("updatedUserInfo", updatedUserInfo);
 
 //When you click signup
  	$("#signup").on("click", function(){
@@ -52,10 +54,12 @@ require(
  		console.log(" Email ", userEmail);
  		console.log(" Password ", userPassword);
 
+
  	});
 
   // THIS WILL SHOW AND HIDE CARDS ON READY
     $(document).ready(function() {
+      
       $("#splashPage").show();
       $("#allMovies").hide();
       $("#unwatchedMovies").hide();
@@ -122,7 +126,6 @@ require(
       var title = $(this).attr("title");
       var image = $(this).attr("image");
       auth.movieAdded(title, image)
-      // populateDom.postToFindMovies(usersRef)
    });
 
 //Watched button
@@ -130,7 +133,6 @@ require(
       var title = $(this).attr("title");
       var image = $(this).attr("image");
       auth.movieAdded(title, image)
-      // populateDom.postToFindMovies(find.oData)
    });
 
 
