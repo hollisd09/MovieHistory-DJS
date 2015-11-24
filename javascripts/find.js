@@ -5,21 +5,23 @@ require(
 
     var allResults = {};
     var i, j;
-    var $Form = $('#findMovies'), $Container = $('#allMoviesHere');
+    var $Form = $('#navBar'), $Container = $('#allMoviesHere');
     $Container.hide();
 
-     $Form.on("click", ".submit", function(p_oEvent){
-        var sUrl, sMovie, oData;
-        p_oEvent.preventDefault();
-        sMovie = $Form.find('.searchByTitle').val();
-        sUrl = 'http://www.omdbapi.com/?s=' + sMovie
+     $Form.on("keypress", function(p_oEvent){
+        if (event.which == 13 ) {
+            console.log("ENTERED");
+            var sUrl, sMovie, oData;
+            p_oEvent.preventDefault();
+            sMovie = $Form.find('#searchMovies').val();
+            sUrl = 'http://www.omdbapi.com/?s=' + sMovie
         
-        $.ajax(sUrl, {
-            complete: function(p_oXHR, p_sStatus){
-                oData = $.parseJSON(p_oXHR.responseText);
-                console.log(oData);
-                $Container.find('.title').text(oData.Title);
-                $Container.show();
+            $.ajax(sUrl, {
+                complete: function(p_oXHR, p_sStatus){
+                    oData = $.parseJSON(p_oXHR.responseText);
+                    console.log(oData);
+                    $Container.find('.title').text(oData.Title);
+                    $Container.show();
 
                 for (i = 0; i < oData.Search.length; i++) {
                     var something = oData.Search[i]["imdbID"];
@@ -32,7 +34,8 @@ require(
                     }
 
                 }
-            }
-        });
+              }
+            });
+        }
     })
 });

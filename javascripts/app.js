@@ -25,6 +25,10 @@ require(
  		var newEmail = $("#emailInput").val();
  		var newPassword= $("#passwordInput").val();
  		auth.createNewUser(newEmail, newPassword);
+    $("#allMovies").show();
+    $("#pageLinks").show();
+    $("#navBar").show();
+    $("#splashPage").hide();
  	});
 
  	$("#login").on("click", function(){
@@ -32,6 +36,11 @@ require(
  		var userPassword= $("#passwordInput").val();
  		
  		auth.loginUser(userEmail, userPassword);
+
+    $("#allMovies").show();
+    $("#pageLinks").show();
+    $("#navBar").show();
+    $("#splashPage").hide();
 
     console.log(" auth ", auth);
  		console.log(" Email ", userEmail);
@@ -92,11 +101,11 @@ require(
    });
 
 //navBar begun not finished
-   $("navBar").on("keypress", function() {
-    if ( event.which == 13 ) {
-      console.log("Entered");
+   $("#navBar").on("keypress", function() {
+    if (event.which == 13 ) {
+      
     event.preventDefault();
-  }
+      }
 
    });
  });
