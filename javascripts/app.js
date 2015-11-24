@@ -27,11 +27,14 @@ require(
  		var newPassword= $("#passwordInput").val();
 //Use auth.js createNewUser passing in newEmail and newPassword as parameters
  		auth.createNewUser(newEmail, newPassword);
+
 //Show and hide relevant IDs
-    $("#allMovies").show();
-    $("#pageLinks").show();
     $("#navBar").show();
+    $("#allMovies").show();
+    $("#unwatchedMovies").hide();
     $("#splashPage").hide();
+    $("#watchedMovies").hide();
+    $("#favoriteMovies").hide();
  	});
 
 //When you click login
@@ -51,6 +54,14 @@ require(
  		console.log(" Email ", userEmail);
  		console.log(" Password ", userPassword);
 
+    $("#navBar").show();
+    $("#allMovies").show();
+    $("#unwatchedMovies").hide();
+    $("#splashPage").hide();
+    $("#watchedMovies").hide();
+    $("#favoriteMovies").hide();
+      
+
  	});
 
   // THIS WILL SHOW AND HIDE CARDS ON READY
@@ -67,6 +78,7 @@ require(
 //Show and hide cards when the all page is clicked
     $("body").on("click", "#allLink", function() {
         $("#allMovies").show();
+        $("#navBar").show();
         $("#unwatchedMovies").hide();
         $("#splashPage").hide();
         $("#watchedMovies").hide();
