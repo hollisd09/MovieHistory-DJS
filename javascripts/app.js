@@ -17,26 +17,31 @@ require.config({
 });
 
 require(
-
  ["dependencies", "auth", "ajax", "find", "populate-dom"], 
  function(_$_, auth, ajax, find, populateDom) {
  	
+//When you click signup
  	$("#signup").on("click", function(){
+//Pull the information from the inputs
  		var newEmail = $("#emailInput").val();
  		var newPassword= $("#passwordInput").val();
+//Use auth.js createNewUser passing in newEmail and newPassword as parameters
  		auth.createNewUser(newEmail, newPassword);
+//Show and hide relevant IDs
     $("#allMovies").show();
     $("#pageLinks").show();
     $("#navBar").show();
     $("#splashPage").hide();
  	});
 
+//When you click login
  	$("#login").on("click", function(){
+//Pull the information from the inputs
  		var userEmail = $("#emailInput").val();
  		var userPassword= $("#passwordInput").val();
- 		
+//Use auth.js createNewUser passing in userEmail and userPassword as parameters
  		auth.loginUser(userEmail, userPassword);
-
+//Show and hide relevant IDs
     $("#allMovies").show();
     $("#pageLinks").show();
     $("#navBar").show();
@@ -48,7 +53,7 @@ require(
 
  	});
 
-  // THIS WILL SHOW AND HIDE CARDS
+  // THIS WILL SHOW AND HIDE CARDS ON READY
     $(document).ready(function() {
       $("#splashPage").show();
       $("#allMovies").hide();
@@ -59,7 +64,7 @@ require(
       $("#navBar").hide();
     });
 
-
+//Show and hide cards when the all page is clicked
     $("body").on("click", "#allLink", function() {
         $("#allMovies").show();
         $("#unwatchedMovies").hide();
@@ -68,6 +73,7 @@ require(
         $("#favoriteMovies").hide();
       });
 
+//Show and hide cards when the unwatched page is clicked
   $("body").on("click", "#unwatchedLink", function() {
         $("#unwatchedMovies").show();
         $("#allMovies").hide();
@@ -76,6 +82,7 @@ require(
         $("#favoriteMovies").hide();
       });
 
+//Show and hide cards when the watched page is clicked
   $("body").on("click", "#watchedLink", function() {
         $("#watchedMovies").show();
         $("#unwatchedMovies").hide();
@@ -84,6 +91,7 @@ require(
         $("#favoriteMovies").hide();
       });
 
+//Show and hide cards when the favorites is clicked
    $("body").on("click", "#favoriteLink", function() {
         $("#favoriteMovies").show();
         $("#watchedMovies").hide();
@@ -92,6 +100,24 @@ require(
         $("#allMovies").hide();
       });
 
+//Logout button
+    $("body").on("click", "#logoutLink", function(){
+      var ref = new Firebase("https://movie-history-djs.firebaseio.com/");
+      ref.unauth();
+      cleanTemp();
+
+      // $("#splashPage").show();
+      // $("#allMovies").hide();
+      // $("#unwatchedMovies").hide();
+      // $("#watchedMovies").hide();
+      // $("#favoriteMovies").hide();
+      // $("#pageLinks").hide();
+      // $("#navBar").hide();
+
+    });
+
+
+//Add button
    $("body").on("click", ".add", function() {
       console.log(find)
       var title = $(this).attr("title");
@@ -100,8 +126,8 @@ require(
       // populateDom.postToFindMovies(find.oData)
    });
 
-   });
- });
+});
+
 
 
 
