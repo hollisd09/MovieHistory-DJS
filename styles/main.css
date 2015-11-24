@@ -37,3 +37,21 @@ input[type="password"] {
 .splashButtons {
   text-align: center;
 }
+
+
+.stars {
+  background: url('../images/star.png');
+  background-repeat: no-repeat;
+  position: relative;
+  float: left;
+  padding: 2px;
+  width: 25px;
+  height: 25px;
+}
+
+.stars-vote {
+  background: url('../images/star-filled.png');
+  background-repeat: no-repeat;
+}
+
+
