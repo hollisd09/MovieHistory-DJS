@@ -3,12 +3,36 @@
 }
 
 h1 {
-  padding:100px 0 50px 0;
-  font-family:helvetica neue,helvetica,arial,sans-serif;
-  font-weight:100;
-  font-size:50px;
-  line-height:50px;
+  padding: 100px 0 50px 0;
+  font-family: "helvetica neue", helvetica, arial, sans-serif;
+  font-weight: 100;
+  font-size: 50px;
+  line-height: 50px;
 }
+
+#entry-screen {
+  margin-top: 200px;
+}
+
+.movieHistory {
+  padding: 75px 0 50px 0;
+  font-family: "helvetica neue", helvetica, arial, sans-serif;
+  font-weight: 100;
+  font-size: 50px;
+  line-height: 50px;
+  color: white;
+}
+
+
+#splashPage {
+  background: url('../images/filmStrip.jpg') no-repeat center 0;
+  width: 100%;
+}
+
+.splashInputs {
+  margin-top: 100px;
+}
+
 
 input[type="email"] {
   text-align: center;
@@ -30,13 +54,31 @@ input[type="password"] {
   border: none;
   border-bottom: 1px solid #757575;
   margin: 0 auto 30px auto;
-
 }
 
 
 .splashButtons {
   text-align: center;
 }
+
+button{
+  font-family: "helvetica neue", helvetica, arial, sans-serif;  
+  font-size: 16px;
+  letter-spacing: 0.05em; 
+  text-transform: uppercase;
+  color: white;
+  border: solid 1px rgb(83,119,122);
+  padding: 1em;
+  margin: 1.5em 1em;
+}
+
+#signup, #login {
+  border: solid 1px rgb(217,91,67);
+  color: rgb(236,208,120);
+  border-radius: 5px;
+  background-color: transparent;
+}
+
 
 /* STYLING FOR STARS STARTS HERE */
 .ratings_stars {
