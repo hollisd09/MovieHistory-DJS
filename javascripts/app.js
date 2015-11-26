@@ -17,8 +17,8 @@ require.config({
 });
 
 require(
- ["dependencies", "auth", "ajax", "find", "populate-dom"], 
- function(_$_, auth, ajax, find, populateDom) {
+ ["dependencies", "auth", "ajax", "find", "populate-dom", "stars"], 
+ function(_$_, auth, ajax, find, populateDom, stars) {
  	
 //When you click signup
  	$("#signup").on("click", function(){

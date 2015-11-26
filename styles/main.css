@@ -38,20 +38,20 @@ input[type="password"] {
   text-align: center;
 }
 
-
-.stars {
-  background: url('../images/star.png');
-  background-repeat: no-repeat;
-  position: relative;
-  float: left;
-  padding: 2px;
-  width: 25px;
-  height: 25px;
+/* STYLING FOR STARS STARTS HERE */
+.ratings_stars {
+    background: url('../images/star.png') no-repeat;
+    float:      left;
+    height:     28px;
+    padding:    2px;
+    width:      32px;
+}
+.ratings_vote {
+    background: url('../images/star-filled.png') no-repeat;
+}
+.ratings_over {
+    background: url('../images/star-filled.png') no-repeat;
 }
 
-.stars-vote {
-  background: url('../images/star-filled.png');
-  background-repeat: no-repeat;
-}
 
 

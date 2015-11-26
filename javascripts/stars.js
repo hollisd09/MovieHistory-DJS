@@ -1,6 +1,20 @@
 define(function(require) {
-	var ajax = require("ajax");
-	var uid = null;
-	var find = require("find");
+	var $ = require("jquery");
+	
+		$('.stars').hover(
+		
+	    // Handles the mouseover
+	    function() {
+	        $(this).prevAll().andSelf().addClass('stars-over');
+	        $(this).nextAll().removeClass('stars-vote'); 
+	    },
+	    
+	    // Handles the mouseout
+	    function() {
+	        $(this).prevAll().andSelf().removeClass('stars-over');
+	        set_votes($(this).parent());
+	    }
+	);
 
 });
+
