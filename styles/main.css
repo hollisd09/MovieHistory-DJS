@@ -61,20 +61,9 @@ input[type="password"] {
   text-align: center;
 }
 
-button{
-  font-family: "helvetica neue", helvetica, arial, sans-serif;  
-  font-size: 16px;
-  letter-spacing: 0.05em; 
-  text-transform: uppercase;
-  color: white;
-  border: solid 1px rgb(83,119,122);
-  padding: 1em;
-  margin: 1.5em 1em;
-}
-
 #signup, #login {
-  border: solid 1px rgb(217,91,67);
-  color: rgb(236,208,120);
+  border-style: none;
+  color: rgb(217,91,67);
   border-radius: 5px;
   background-color: transparent;
 }
