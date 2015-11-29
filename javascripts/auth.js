@@ -1,5 +1,6 @@
 define(function(require) {
 	var ajax = require("ajax");
+	var q = require("q");
 	var uid = null;
 	var find = require("find");
 
@@ -49,7 +50,7 @@ define(function(require) {
       
 	        userClickedAdd.set({
 	        					  	title: title,
-	        					  	poster: image
+	        					  	poster: image,
 	        					   });
 		    // We've appended a new message to the message_list location.
 	    	// var path = userAddedPoster.toString();

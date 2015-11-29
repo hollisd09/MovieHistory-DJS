@@ -12,5 +12,13 @@ define(function(require) {
 
             });
         },
+
+        // postActors: function(mData){
+
+        //     require(['hbs!../templates/all-movies'], function(MoviesTemp) {
+        //     	$("#allMoviesHere").append(MoviesTemp(mData));
+
+        //     });
+        // },
 	}
 });
