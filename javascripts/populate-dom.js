@@ -36,5 +36,12 @@ define(function(require) {
 
             });
         },
+
+        postToFavoriteMovies: function(oDataInfo){
+
+            require(['hbs!../templates/favorites'], function(findMoviesTemp) {
+                $("#favoriteMovies").append(findMoviesTemp(oDataInfo));
+            });
+        }
 	}
 });

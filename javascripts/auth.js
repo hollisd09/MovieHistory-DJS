@@ -2,6 +2,7 @@ define(function(require) {
 	var ajax = require("ajax");
 	var uid = null;
 	var find = require("find");
+	var populateDom = require("populate-dom");
 
 
 	var toUpdateUserInfo = function(){
@@ -12,13 +13,17 @@ define(function(require) {
 	    // Store the entire user-uid key in a local variable
 	  	var updatedUserInfo = snapshot.val();
 	  	console.log("updatedUserInfo", updatedUserInfo);
-	  	
+	  	populateDom.postToUnwatchedMovies(updatedUserInfo.unwatched);
+	  	populateDom.postToWatchedMovies(updatedUserInfo.watched);
+	  	populateDom.postToFavoriteMovies(updatedUserInfo.favorites)
 	  	return updatedUserInfo;
 
 	  	});
 	}
 
  return {
+ 	newUserInfo: toUpdateUserInfo,
+
  	createNewUser : function(newEmail, newPassword) {
 		var ref = new Firebase("https://movie-history-djs.firebaseio.com/");
 		ref.createUser({
@@ -34,7 +39,7 @@ define(function(require) {
 		  var ref2 = new Firebase(url)
 		  console.log("authData", authData);
 		  ref2.set(authData);
-		  // ajax.postToFirebase(authData, newEmail, uid);
+		  
 		  } 
 		});
 	},
@@ -56,12 +61,11 @@ define(function(require) {
 			console.log("Authenticated successfully with payload:", authData);
 			
 			updatedUserInfo = toUpdateUserInfo();
-  			// console.log("updatedUserInfo", updatedUserInfo);
+  			console.log("updatedUserInfo", updatedUserInfo);
 		  } 
 		});
 	},
 
-	toUpdateUserInfo: toUpdateUserInfo,
 
 	movieAddedUnwatched: function(title, image) {
 		var userClickedAdd = new Firebase('https://movie-history-djs.firebaseio.com/users/' + uid + '/unwatched/' + title);

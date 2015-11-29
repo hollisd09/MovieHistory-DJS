@@ -23,6 +23,9 @@ require(
   // updatedUserInfo = auth.toUpdateUserInfo();
   // console.log("updatedUserInfo", updatedUserInfo);
 
+// populateDom.postToUnwatchedMovies(auth.toUpdateUserInfo)
+
+
 //When you click signup
  	$("#signup").on("click", function(){
 //Pull the information from the inputs
@@ -41,7 +44,7 @@ require(
  	$("#login").on("click", function(){
 //Pull the information from the inputs
  		var userEmail = $("#emailInput").val();
- 		var userPassword= $("#passwordInput").val();
+ 		var userPassword = $("#passwordInput").val();
 //Use auth.js createNewUser passing in userEmail and userPassword as parameters
  		auth.loginUser(userEmail, userPassword);
 //Show and hide relevant IDs
@@ -76,11 +79,11 @@ require(
         $("#splashPage").hide();
         $("#watchedMovies").hide();
         $("#favoriteMovies").hide();
-        // populateDom.postToFindMovies(updatedUserInfo.unwatched)
       });
 
 //Show and hide cards when the unwatched page is clicked
   $("body").on("click", "#unwatchedLink", function() {
+        // populateDom.postToUnwatchedMovies(auth.toUpdateUserInfo);
         $("#unwatchedMovies").show();
         $("#allMovies").hide();
         $("#splashPage").hide();
@@ -133,9 +136,12 @@ require(
    $("body").on("click", ".watched", function() {
       var title = $(this).attr("title");
       var image = $(this).attr("image");
-      auth.movieAdded(title, image);
-      
+      auth.movieAddedtoWatched(title, image);
    });
+
+
+
+
 
 
 });
