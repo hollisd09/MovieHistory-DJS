@@ -6,6 +6,7 @@
         <title>Movie History</title>
           <link rel="stylesheet" type="text/css" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
           <link rel="stylesheet" type="text/css" href="styles/main.css">
+          <link href="lib/bower_components/bootstrap-star-rating/css/star-rating.min.css" media="all" rel="stylesheet" type="text/css" />
     </head>
 <body>
 
@@ -24,14 +25,7 @@
                     <button id="login">Login</button>
                 </div>
 
-
-                <div id="r1" class="rate_widget">
-                    <div class="star_1 ratings_stars"></div>
-                    <div class="star_2 ratings_stars"></div>
-                    <div class="star_3 ratings_stars"></div>
-                    <div class="star_4 ratings_stars"></div>
-                    <div class="star_5 ratings_stars"></div>
-                </div>
+                <input id="input-id" type="number" class="rating" data-min="0" data-max="5" data-step="1" data-show-clear="false" data-show-caption="false" data-size="xs">
                 
             </div>
         </section>

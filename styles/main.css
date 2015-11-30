@@ -23,12 +23,6 @@ h1 {
   color: white;
 }
 
-
-#splashPage {
-  background: url('../images/filmStrip.jpg') no-repeat center 0;
-  width: 100%;
-}
-
 .splashInputs {
   margin-top: 100px;
 }
@@ -70,19 +64,7 @@ input[type="password"] {
 
 
 /* STYLING FOR STARS STARTS HERE */
-.ratings_stars {
-    background: url('../images/star.png') no-repeat;
-    float:      left;
-    height:     28px;
-    padding:    2px;
-    width:      32px;
-}
-.ratings_vote {
-    background: url('../images/star-filled.png') no-repeat;
-}
-.ratings_over {
-    background: url('../images/star-filled.png') no-repeat;
-}
+
 
 
 
