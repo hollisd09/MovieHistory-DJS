@@ -97,7 +97,7 @@ define(function(require) {
       
 	        userClickedAdd.set({
 	        					  	title: title,
-	        					  	poster: image,
+	        					  	poster: image
 	        					   });
     },
 

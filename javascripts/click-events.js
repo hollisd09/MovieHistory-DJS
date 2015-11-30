@@ -14,6 +14,7 @@ define(function(require) {
 //Show and hide relevant IDs
     $("#navBar").show();
     $("#allMovies").show();
+    $("#pageLinks").show();
     $("#unwatchedMovies").hide();
     $("#splashPage").hide();
     $("#watchedMovies").hide();
