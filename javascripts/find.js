@@ -86,55 +86,53 @@
 require(
 
  ["dependencies", "auth", "ajax", "populate-dom", "q"], 
- function(_$_, auth, ajax, populateDom, q) {
+ function(_$_, auth, ajax, populateDom, Q) {
 
      // var $Form = $('#navBar'), $Container = $('#allMoviesHere');
       $('allMoviesHere').hide();
         $('#navBar').on("keypress", function(){
             if (event.which == 13 ) {
                 var searchUrl, searchMovie, oData, mData, fullText, movieKey;
-                var i, j;
-                searchMovie = $('#navBar').find('#searchMovies').val()
-                searchUrl = 'http://www.omdbapi.com/?s=' + searchMovie;
-                movieKey = '&apikey=7c212437';
+                var moviesFromApi = [];
+                var searchMovie = $('#navBar').find('#searchMovies').val()
+                var searchUrl = 'http://www.omdbapi.com/?s=' + searchMovie;
+                var movieKey = '&apikey=7c212437';
 
-                var a1 = $.ajax(searchUrl, {
-                
-                    complete: function(param1){
-                        //Parse the JSON into Objects and return the data as a string with responseText
-                        oData = $.parseJSON(param1.responseText);
-                        $('allMoviesHere').show();
 
-                        //Look through all the Objects
-                        for (i = 0; i < oData.Search.length; i++) {
-                            //Set a variable for imdbID. The imdbID is used in locating the poster. 
-                            var imdbID = oData.Search[i]["imdbID"];
-                            var fullText = 'http://www.omdbapi.com/?i=' + imdbID + "&r=json";
+                var omdbAPICall = function(){
+                    var deferred = Q.defer();
 
-                            if (oData.Search[i]["Poster"] === "N/A") {
-                            console.log("Not Available");
-                            } else {
-                                oData.Search[i].actualImage = 'http://img.omdbapi.com/?i=' + imdbID + movieKey;
-                                populateDom.postToFindMovies(oData.Search[i])
-                            } //End of Else
-                        } //End of For Loop
-                    } //End of complete
-                }), //End of a1
+                    $.ajax({
+                        url: searchUrl
+                    }).done(function(data){
+                        deferred.resolve(data);
+                    }).fail(function(xhr, status, error){
+                        deferred.reject(error);
+                    });
 
-                a2 = $.ajax(fullText, {
-                    complete: function(param2){
-                        mData = $.parseJSON(param2.responseText);
-                            $Container.show();
-                            populateDom.postToFindMovies(mData)
-                            console.log("mData", mData);
-                            return mData;
-                    }
+                    return deferred.promise;
+                };
+
+
+                omdbAPICall().then(function(movies){
+                    movies.Search.forEach(function(movie) {
+                        movie.fullOmdbUrl = 'http://www.omdbapi.com/?i=' + movie.imdbID + "&r=json";
+                        movie.actualImage = 'http://img.omdbapi.com/?i=' + movie.imdbID + movieKey;
+                        moviesFromApi.push(movie);
+
+                        $.ajax({
+                            url: movie.fullOmdbUrl
+                        }).done(function(data) {
+                            movie.Details = data;
+                            console.log(data);
+                        })
+
+                        console.log(movie);
+                        populateDom.postToFindMovies(movie);
+
+                    });
                 });
 
-            $.when(a1, a2).done(function(r1, r2) {
-                console.log(fullText);
-                console.log(mData);
-            });
         };
     })
 });
