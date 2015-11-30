@@ -1,0 +1,76 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Movie History</title>
+          <link rel="stylesheet" type="text/css" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
+          <link rel="stylesheet" type="text/css" href="styles/main.css">
+    </head>
+<body>
+
+    <div class="container">
+    
+<!-- END MODAL -->
+
+ <!-- BEGIN SPLASH PAGE -->
+        <section id="entry-screen">
+            <div id="splashPage">
+                <h1 class="movieHistory">MOVIE HISTORY</h1>
+                <div class="splashInputs">
+                    <input id="emailInput" type="email" placeholder="Input Email">
+                    <input id="passwordInput" type="password" placeholder="Input Password">
+                    <button id="signup">Signup</button>
+                    <button id="login">Login</button>
+                </div>
+            </div>
+        </section>
+
+
+<!-- END SPLASH PAGE -->
+
+<!-- BEGINNING OF MAIN CONTAINER SECTION -->
+        <section id="main-container">     
+    
+    <!-- BEGINNING OF NAVIGATION -->
+            <navigation id="navBar">
+               <input id="searchMovies" type="text" placeholder="Search movies...">
+                <a href="#" id="logoutLink">Logout</a>
+            </navigation>
+    <!-- END OF NAVIGATION -->
+    
+    <!-- ALL, UNWATCHED, WATCHED, FAVORITES LINKS -->
+            <div id="pageLinks">
+                <a href="#" id="allLink">All</a> |
+                <a href="#" id="unwatchedLink">Unwatched</a> |
+                <a href="#" id="watchedLink">Watched</a> |
+                <a href="#" id="favoriteLink">Favorites</a>
+            </div>
+
+    <!-- ALL MOVIES -->
+        <div id="allMovies">
+            <div id="allMoviesHere">
+            </div>
+        </div>
+
+    <!-- UNWATCHED MOVIES -->
+        <div id="unwatchedMovies">
+        </div>
+    
+    <!-- WATCHED MOVIES -->
+        <div id="watchedMovies">
+        </div>
+
+    <!-- FAVORITE MOVIES -->
+        <div id="favoriteMovies">
+        </div>
+
+
+        
+    </div>
+<!-- END OF MAIN CONTAINER SECTION -->
+
+<script data-main="javascripts/app" src="lib/bower_components/requirejs/require.js"></script>
+</body>
+</html>
+
+    
