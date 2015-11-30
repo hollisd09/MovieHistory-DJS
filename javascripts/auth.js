@@ -1,5 +1,6 @@
 define(function(require) {
 	var ajax = require("ajax");
+	var q = require("q");
 	var uid = null;
 	var find = require("find");
 	var populateDom = require("populate-dom");
@@ -84,7 +85,7 @@ define(function(require) {
       
 	        userClickedAdd.set({
 	        					  	title: title,
-	        					  	poster: image
+	        					  	poster: image,
 	        					   });
     },
 
