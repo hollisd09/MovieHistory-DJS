@@ -17,7 +17,8 @@ define(function(require) {
 	  	//This is populating watched, unwatched, and favorites form hbs
 	  	populateDom.postToUnwatchedMovies(updatedUserInfo.unwatched);
 	  	populateDom.postToWatchedMovies(updatedUserInfo.watched);
-	  	populateDom.postToFavoriteMovies(updatedUserInfo.favorites)
+	  	populateDom.postToFavoriteMovies(updatedUserInfo.favorites);
+	  	
 	  	return updatedUserInfo;
 
 	  	});

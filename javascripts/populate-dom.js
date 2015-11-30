@@ -2,13 +2,14 @@ define(function(require) {
 	var ajax = require("ajax");
 	var uid = null;
 	var find = require("find");
+    
 
 	return {
 
         postToFindMovies: function(oDataInfo){
 
             require(['hbs!../templates/all-movies'], function(findMoviesTemp) {
-            	$("#allMoviesHere").append(findMoviesTemp(oDataInfo));
+            	$("#allMovies").append(findMoviesTemp(oDataInfo));
 
             });
         },
@@ -24,6 +25,7 @@ define(function(require) {
         postToUnwatchedMovies: function(oDataInfo){
 
             require(['hbs!../templates/unwatched-movies'], function(findMoviesTemp) {
+                console.log("POST TO UNWATCHED")
             	$("#unwatchedMovies").html(findMoviesTemp(oDataInfo));
 
             });

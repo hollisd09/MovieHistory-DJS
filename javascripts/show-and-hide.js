@@ -1,5 +1,6 @@
 define(function(require) {
 	var $ = require("jquery");
+  var populateDom = require("populate-dom");
 
   // THIS WILL SHOW AND HIDE CARDS
 

@@ -1,5 +1,6 @@
 define(function(require) {
 	var $ = require("jquery");
+	var auth = require("auth");
 	
 //Logout button
 	    $("body").on("click", "#logoutLink", function(){
@@ -21,10 +22,10 @@ define(function(require) {
 	      console.log("find", find);
 	      var title = $(this).attr("title");
 	      var image = $(this).attr("image");
-	      auth.movieAdded(title, image)
-	      // populateDom.postToFindMovies(find.oData)
+	      auth.movieAddedtoAll(title, image);
+	      auth.movieAddedUnwatched(title,image);
 	   });
-})
+
 
 //Watched button
    $("body").on("click", ".watched", function() {
@@ -38,3 +39,5 @@ define(function(require) {
     var title = $(this).attr("title");
     auth.deleteMovie(title);
   });
+
+ });

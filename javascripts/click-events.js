@@ -1,5 +1,6 @@
 define(function(require) {
 	var $ = require("jquery");
+    var auth = require("auth");
 
 
 //When you click signup
