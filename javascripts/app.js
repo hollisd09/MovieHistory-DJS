@@ -139,6 +139,12 @@ require(
       auth.movieAddedtoWatched(title, image);
    });
 
+//delete button
+  $("body").on("click", ".deleteBtn", function() {
+    var title = $(this).attr("title");
+    auth.deleteMovie(title);
+  });
+
 
 
 

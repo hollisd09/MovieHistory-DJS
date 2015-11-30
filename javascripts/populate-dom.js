@@ -24,7 +24,7 @@ define(function(require) {
         postToUnwatchedMovies: function(oDataInfo){
 
             require(['hbs!../templates/unwatched-movies'], function(findMoviesTemp) {
-            	$("#unwatchedMovies").append(findMoviesTemp(oDataInfo));
+            	$("#unwatchedMovies").html(findMoviesTemp(oDataInfo));
 
             });
         },
@@ -32,7 +32,7 @@ define(function(require) {
         postToWatchedMovies: function(oDataInfo){
 
             require(['hbs!../templates/watched-movies'], function(findMoviesTemp) {
-            	$("#watchedMovies").append(findMoviesTemp(oDataInfo));
+            	$("#watchedMovies").html(findMoviesTemp(oDataInfo));
 
             });
         },
@@ -40,7 +40,7 @@ define(function(require) {
         postToFavoriteMovies: function(oDataInfo){
 
             require(['hbs!../templates/favorites'], function(findMoviesTemp) {
-                $("#favoriteMovies").append(findMoviesTemp(oDataInfo));
+                $("#favoriteMovies").html(findMoviesTemp(oDataInfo));
             });
         }
 	}

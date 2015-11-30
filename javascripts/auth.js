@@ -13,6 +13,8 @@ define(function(require) {
 	    // Store the entire user-uid key in a local variable
 	  	var updatedUserInfo = snapshot.val();
 	  	console.log("updatedUserInfo", updatedUserInfo);
+
+	  	//This is populating watched, unwatched, and favorites form hbs
 	  	populateDom.postToUnwatchedMovies(updatedUserInfo.unwatched);
 	  	populateDom.postToWatchedMovies(updatedUserInfo.watched);
 	  	populateDom.postToFavoriteMovies(updatedUserInfo.favorites)
@@ -74,10 +76,6 @@ define(function(require) {
 	        					  	title: title,
 	        					  	poster: image
 	        					   });
-		    // We've appended a new message to the message_list location.
-	    	// var path = userAddedPoster.toString();
-	       // path will be something like
-           // 'https://movie-history-djs.firebaseio.com/users-favorites'
     },
 
     movieAddedFavorites: function(title, image) {
@@ -105,6 +103,18 @@ define(function(require) {
 	        					  	title: title,
 	        					  	poster: image
 	        					   });
-    }    
+    },    
+
+    deleteMovie: function(title) {
+    	var removeMovieRef = new Firebase('https://movie-history-djs.firebaseio.com/users/' + uid + '/watched/' + title);
+			var onComplete = function(error) {
+			  if (error) {
+			    console.log('Synchronization failed');
+			  } else {
+			    console.log('Synchronization succeeded');
+			  }
+			};
+			removeMovieRef.remove(onComplete);
+    }
   };
 });
