@@ -32,6 +32,7 @@ define(function(require) {
       var title = $(this).attr("title");
       var image = $(this).attr("image");
       auth.movieAddedtoWatched(title, image);
+      auth.movieIsWatched(title);
    });
 
 //delete button
