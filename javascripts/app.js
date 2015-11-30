@@ -6,10 +6,12 @@ require.config({
     'hbs': '../lib/bower_components/require-handlebars-plugin/hbs',
     'q': '../lib/bower_components/q/q',
     'firebase': '../lib/bower_components/firebase/firebase',
-    'bootstrap': '../lib/bower_components/bootstrap/dist/js/bootstrap.min'
+    'bootstrap': '../lib/bower_components/bootstrap/dist/js/bootstrap.min',
+    'stars': '../lib/bower_components/bootstrap-star-rating/js/star-rating.min'
   },
   shim: {
     'bootstrap': ['jquery'],
+    'stars': ['bootstrap'],
     'firebase': {
       exports: 'Firebase'
     }
@@ -17,8 +19,8 @@ require.config({
 });
 
 require(
- ["dependencies", "auth", "ajax", "find", "populate-dom", "stars", "show-and-hide", "click-events", "buttons"], 
- function(_$_, auth, ajax, find, populateDom, stars, showAndHide, clickEvents, buttons) {
+ ["dependencies", "auth", "ajax", "find", "populate-dom", "show-and-hide", "click-events", "buttons"], 
+ function(_$_, auth, ajax, find, populateDom, showAndHide, clickEvents, buttons) {
 });
 
 
