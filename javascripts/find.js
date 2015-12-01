@@ -24,7 +24,8 @@ require(
                     } //Loop ends
 
                     if (fdbMov === undefined) {
-                        populateDom.postToWatchedMovies(apiData);
+                        populateDom.postToFindMovies(apiData);
+                    
                         return "Finished";
                     }
 
@@ -86,13 +87,12 @@ require(
                 .then(function(movies){ 
                     console.log("movies", movies);
                     movies.Search.forEach(function(movie) {
-                        console.log("movie", movie)
+
                       // Record results
                         var title = movie.Title;
                         var year = movie.Year;
                         var actors = movie.Actors;
                         var imdbID = movie.imdbID;
-
                         var actorsArray = actors.split(", ");
 
                       //Flash results to FB
@@ -105,16 +105,16 @@ require(
                           'watched': false,
                           'rating': 0
                         };
-                        console.log(objectforFB);
+
 
 
                         objectforFB.fullOmdbUrl = 'http://www.omdbapi.com/?i=' + movie.imdbID + "&r=json";
                         objectforFB.poster = 'http://img.omdbapi.com/?i=' + movie.imdbID + movieKey;
-                        console.log("moviesFromApi", moviesFromApi)
+
                         moviesFromApi.push(objectforFB);
 
 
-                        console.log("STUFF~!");
+
                         auth.getFirebaseMovies(FBsearch, objectforFB);
 
 

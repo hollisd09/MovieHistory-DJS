@@ -22,8 +22,11 @@ define(function(require) {
 	      console.log("find", find);
 	      var title = $(this).attr("title");
 	      var image = $(this).attr("image");
-	      auth.movieAddedtoAll(title, image, imdbID);
-	      auth.movieAddedUnwatched(title, image, imdbID);
+	      var imdbID = $(this).attr("imdbid");
+	      var actors = $(this.Actors);
+	      console.log(actors);
+	      auth.movieAddedtoAll(title, image, imdbID, actors);
+	      auth.movieAddedUnwatched(title,image, imdbID, actors);
 	   });
 
 
@@ -31,6 +34,8 @@ define(function(require) {
    $("body").on("click", ".watched", function() {
       var title = $(this).attr("title");
       var image = $(this).attr("image");
+      var imdbID = $(this).attr("imdbid");
+      console.log(imdbID);
       auth.movieAddedtoWatched(title, image, imdbID);
       auth.movieIsWatched(title);
    });

@@ -26,6 +26,7 @@ define(function(require) {
 
             require(['hbs!../templates/unwatched-movies'], function(findMoviesTemp) {
                 console.log("POST TO UNWATCHED")
+                console.log('oDataInfo', oDataInfo)
             	$("#unwatchedMovies").html(findMoviesTemp(oDataInfo));
 
             });
