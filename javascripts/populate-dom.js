@@ -2,7 +2,7 @@ define(function(require) {
 	var ajax = require("ajax");
 	var uid = null;
 	var find = require("find");
-    
+
 
 	return {
 
@@ -35,6 +35,7 @@ define(function(require) {
 
             require(['hbs!../templates/watched-movies'], function(findMoviesTemp) {
             	$("#watchedMovies").html(findMoviesTemp(oDataInfo));
+                $("#imdbID").rating();
 
             });
         },

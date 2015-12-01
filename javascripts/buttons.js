@@ -22,8 +22,8 @@ define(function(require) {
 	      console.log("find", find);
 	      var title = $(this).attr("title");
 	      var image = $(this).attr("image");
-	      auth.movieAddedtoAll(title, image);
-	      auth.movieAddedUnwatched(title,image);
+	      auth.movieAddedtoAll(title, image, imdbID);
+	      auth.movieAddedUnwatched(title, image, imdbID);
 	   });
 
 
@@ -31,7 +31,7 @@ define(function(require) {
    $("body").on("click", ".watched", function() {
       var title = $(this).attr("title");
       var image = $(this).attr("image");
-      auth.movieAddedtoWatched(title, image);
+      auth.movieAddedtoWatched(title, image, imdbID);
       auth.movieIsWatched(title);
    });
 
