@@ -4,7 +4,8 @@ define(function(require) {
 	var uid = null;
 	var find = require("find");
 	var populateDom = require("populate-dom"); 
-	var auth = require("auth");   
+	var auth = require("auth");
+	var templates = require("loadTemplates"); 
 
     return {
 	    movieAddedToAll: function(title, image) {
@@ -13,7 +14,8 @@ define(function(require) {
 				  	title: title,
 				  	poster: image
 			    });
-	    }
+	    $("#allMoviesHere").html(templates.allMovies());
+	    },
     };
 });
       

@@ -6,6 +6,7 @@ define(function(require) {
 	var movieAddedToWatched = require("movieAddedToWatched");
 	var movieIsWatched = require("movieIsWatched");
 	var deleteMovie = require("deleteMovie");
+	var templates = require("loadTemplates"); 
 	
 //Logout button
 	    $("body").on("click", "#logoutLink", function(){

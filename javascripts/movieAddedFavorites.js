@@ -5,6 +5,7 @@ define(function(require) {
 	var find = require("find");
 	var populateDom = require("populate-dom");
 	var auth = require("auth");
+	var templates = require("loadTemplates"); 
 
 	return {
 		movieAddedFavorites : function(title, image) {
