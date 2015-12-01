@@ -24,7 +24,7 @@ require(
                     } //Loop ends
 
                     if (fdbMov === undefined) {
-                        populateDom.postToFindMovies(apiData);
+                        populateDom.postToWatchedMovies(apiData);
                         return "Finished";
                     }
 
@@ -41,7 +41,7 @@ require(
                         }//End If
                         
                         console.log("end", end);
-                        populateDom.postToFindMovies(end);                   
+                        populateDom.postToWatchedMovies(end);                   
                     }
                 };
 
