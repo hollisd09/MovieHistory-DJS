@@ -5,7 +5,6 @@ define(function(require) {
 	var find = require("find");
 	var populateDom = require("populate-dom");
 
-
 	var toUpdateUserInfo = function(){
 		console.log(uid)
 		var myFirebaseRef = new Firebase("https://movie-history-djs.firebaseio.com/users/" + uid);
@@ -51,11 +50,10 @@ define(function(require) {
 		  } else {
 		  uid = authData.uid;
 		  authData.email = newEmail;
-		  var url = "https://movie-history-djs.firebaseio.com/users/" + uid
-		  var ref2 = new Firebase(url)
+		  var ref = new Firebase("https://movie-history-djs.firebaseio.com/users/" + uid);
 		  console.log("authData", authData);
-		  ref2.set(authData);
-		  
+		  ref.set(authData);
+
 		  } 
 		});
 	},
@@ -91,6 +89,7 @@ define(function(require) {
 	        					  	poster: image
 	        					   });
     },
+
 
     movieAddedFavorites: function(title, image) {
 		var userClickedAdd = new Firebase('https://movie-history-djs.firebaseio.com/users/' + uid + '/favorites/' + title);

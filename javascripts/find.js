@@ -50,9 +50,11 @@ require(
 
                     $.ajax({
                         url: searchUrl
-                    }).done(function(data){
+                    }).done(function(data){ 
+                        console.log("Done happens");
                         deferred.resolve(data);
                     }).fail(function(xhr, status, error){
+                        console.log("Fail happens");
                         deferred.reject(error);
                     });
 
@@ -60,26 +62,69 @@ require(
                 };
 
 
-                omdbAPICall().then(function(movies){
-                    movies.Search.forEach(function(movie) {
-                        movie.fullOmdbUrl = 'http://www.omdbapi.com/?i=' + movie.imdbID + "&r=json";
-                        movie.poster = 'http://img.omdbapi.com/?i=' + movie.imdbID + movieKey;
-                        moviesFromApi.push(movie);
+                omdbAPICall()
+                .then(function (data){
+                    var defer = Q.defer();
+                    var result = {Search:[]};
+                    var count = 0;
+                    var length = data.Search.length;
 
+                    data.Search.forEach(function(item) {
                         $.ajax({
-                            url: movie.fullOmdbUrl
-                        }).done(function(data) {
-                            movie.Details = data;
-                            // console.log(data);
+                            url: 'http://www.omdbapi.com/?i=' + item.imdbID
+                        }).done(function(fullItem){
+                            result.Search.push(fullItem);
+                            count++;
+
+                            if (count === length){
+                                defer.resolve(result)
+                            }
                         })
-
-                        // console.log(movie);
-                        // FBsearch(movie);
-                        auth.getFirebaseMovies(FBsearch, movie);
-
-                        // populateDom.postToFindMovies(movie);
-
                     });
+                    return defer.promise;
+                })
+                .then(function(movies){ 
+                    console.log("movies", movies);
+                    movies.Search.forEach(function(movie) {
+                        console.log("movie", movie)
+                      // Record results
+                        var title = movie.Title;
+                        var year = movie.Year;
+                        var actors = movie.Actors;
+                        var imdbID = movie.imdbID;
+
+                        var actorsArray = actors.split(", ");
+
+                      //Flash results to FB
+                        // build object to push to FB from data 
+                        var objectforFB = {
+                          'Title': title,
+                          'Year': year,
+                          'imdbID': imdbID,
+                          'actors': actorsArray,
+                          'watched': false,
+                          'rating': 0
+                        };
+                        console.log(objectforFB);
+
+
+                        objectforFB.fullOmdbUrl = 'http://www.omdbapi.com/?i=' + movie.imdbID + "&r=json";
+                        objectforFB.poster = 'http://img.omdbapi.com/?i=' + movie.imdbID + movieKey;
+                        console.log("moviesFromApi", moviesFromApi)
+                        moviesFromApi.push(objectforFB);
+
+
+                        console.log("STUFF~!");
+                        auth.getFirebaseMovies(FBsearch, objectforFB);
+
+
+                    })
+                    
+                })
+                .fail(function (err) {
+                    var error = new Error(err);
+                    console.log('error', error);
+                    // throw new UserException(err);
                 });
 
         };
