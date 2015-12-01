@@ -1,5 +1,4 @@
 define(function(require){
-
   return {
     allMovies: require("hbs!../templates/all-movies"),
     favorites: require("hbs!../templates/favorites"),
@@ -8,4 +7,3 @@ define(function(require){
     watchedMovies: require("hbs!../templates/watched-movies")
   };
 });
-
