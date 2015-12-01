@@ -69,73 +69,8 @@ define(function(require) {
 		  } 
 		});
 	},
-
-
-	movieAddedUnwatched: function(title, image) {
-		var userClickedAdd = new Firebase('https://movie-history-djs.firebaseio.com/users/' + uid + '/unwatched/' + title);
-      
-	        userClickedAdd.set({
-	        					  	title: title,
-	        					  	poster: image
-	        					   });
-    },
-
-    movieAddedFavorites: function(title, image) {
-		var userClickedAdd = new Firebase('https://movie-history-djs.firebaseio.com/users/' + uid + '/favorites/' + title);
-      
-	        userClickedAdd.set({
-	        					  	title: title,
-	        					  	poster: image,
-	        					   });
-    },
-
-    movieAddedtoAll: function(title, image) {
-		var userClickedAdd = new Firebase('https://movie-history-djs.firebaseio.com/users/' + uid + '/all/' + title);
-      
-	        userClickedAdd.set({
-	        					  	title: title,
-	        					  	poster: image
-	        					   });
-    },    
-
-    movieAddedtoWatched: function(title, image) {
-		var userClickedAdd = new Firebase('https://movie-history-djs.firebaseio.com/users/' + uid + '/watched/' + title);
-      
-	        userClickedAdd.set({
-	        					  	title: title,
-	        					  	poster: image
-	        					   });
-    },    
-
-    deleteMovie: function(title) {
-    	var removeMovieRef = new Firebase('https://movie-history-djs.firebaseio.com/users/' + uid + '/all/' + title);
-		var removeMovieRefW = new Firebase('https://movie-history-djs.firebaseio.com/users/' + uid + '/watched/' + title);
-		var removeMovieRefU = new Firebase('https://movie-history-djs.firebaseio.com/users/' + uid + '/unwatched/' + title);
-		var removeMovieRefF = new Firebase('https://movie-history-djs.firebaseio.com/users/' + uid + '/favorites/' + title);
-			var onComplete = function(error) {
-			  if (error) {
-			    console.log('Synchronization failed');
-			  } else {
-			    console.log('Synchronization succeeded');
-			  }
-			};
-			removeMovieRefU.remove(onComplete);
-			removeMovieRefW.remove(onComplete);
-			removeMovieRefF.remove(onComplete);
-			removeMovieRef.remove(onComplete);
-    },
-
-    movieIsWatched : function (title) {
-    	var removeMovieRefU = new Firebase('https://movie-history-djs.firebaseio.com/users/' + uid + '/unwatched/' + title);
-    	var onComplete = function(error) {
-			  if (error) {
-			    console.log('Synchronization failed');
-			  } else {
-			    console.log('Deleted from watched!');
-			  }
-			};
-			removeMovieRefU.remove(onComplete);
-		
-    }
-  };
+	
+	};
 });
+
+      

@@ -1,6 +1,11 @@
 define(function(require) {
 	var $ = require("jquery");
 	var auth = require("auth");
+	var movieAddedUnwatched = require("movieAddedUnwatched");
+	var movieAddedToAll = require("movieAddedToAll");
+	var movieAddedToWatched = require("movieAddedToWatched");
+	var movieIsWatched = require("movieIsWatched");
+	var deleteMovie = require("deleteMovie");
 	
 //Logout button
 	    $("body").on("click", "#logoutLink", function(){
@@ -22,23 +27,23 @@ define(function(require) {
 	      console.log("find", find);
 	      var title = $(this).attr("title");
 	      var image = $(this).attr("image");
-	      auth.movieAddedtoAll(title, image);
-	      auth.movieAddedUnwatched(title,image);
+	      auth.movieAddedToAll;
+	      auth.movieAddedUnwatched;
 	   });
 
 
 //Watched button
-   $("body").on("click", ".watched", function() {
-      var title = $(this).attr("title");
-      var image = $(this).attr("image");
-      auth.movieAddedtoWatched(title, image);
-      auth.movieIsWatched(title);
-   });
+	   $("body").on("click", ".watched", function() {
+	      var title = $(this).attr("title");
+	      var image = $(this).attr("image");
+	      auth.movieAddedToWatched;
+	      auth.movieIsWatched;
+	   });
 
 //delete button
-  $("body").on("click", ".deleteBtn", function() {
-    var title = $(this).attr("title");
-    auth.deleteMovie(title);
-  });
+	  $("body").on("click", ".deleteBtn", function() {
+	    var title = $(this).attr("title");
+	    auth.deleteMovie;
+	  });
 
- });
+});

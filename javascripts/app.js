@@ -19,8 +19,41 @@ require.config({
 });
 
 require(
- ["dependencies", "auth", "ajax", "find", "populate-dom", "show-and-hide", "click-events", "buttons"], 
- function(_$_, auth, ajax, find, populateDom, showAndHide, clickEvents, buttons) {
+ 
+ ["dependencies",
+ "auth",
+ "ajax",
+ "find",
+ "populate-dom",
+ "show-and-hide",
+ "click-events",
+ "buttons",
+ "movieIsWatched",
+ "deleteMovie",
+ "movieAddedToWatched",
+ "movieAddedToAll",
+ "movieAddedUnwatched",
+ "movieAddedFavorites"], 
+ 
+
+ function(
+
+  _$_,
+  auth,
+  ajax,
+  find,
+  populateDom,
+  showAndHide,
+  clickEvents,
+  buttons,
+  movieIsWatched,
+  deleteMovie,
+  movieAddedToWatched,
+  movieAddedToAll,
+  movieAddedUnwatched,
+  movieAddedFavorites) 
+ {
+
 });
 
 
