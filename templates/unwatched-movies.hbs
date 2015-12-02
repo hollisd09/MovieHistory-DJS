@@ -1,10 +1,13 @@
 {{#each this}}
 <div>
-	<h4>{{title}}</h4>
-  <button class="deleteBtn" title="{{title}}" image="{{poster}}">x</button>
-  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#{{imdbID}}"><img src="{{poster}}"></button>
-	<button class="watched" title="{{title}}" image="{{poster}}" imdbID="{{imdbID}}">Watched</button>
+  <div <div class="col-sm-3 col-xs-12">
+  	<h4>{{title}}</h4>
+    <button class="deleteBtn" title="{{title}}" image="{{poster}}">x</button>
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#{{imdbID}}"><img src="{{poster}}"></button>
+  	<button class="watched" title="{{title}}" image="{{poster}}" imdbID="{{imdbID}}">Watched</button>
+  </div>
 </div>
+
 
 
 <!-- Modal -->
