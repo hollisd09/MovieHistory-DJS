@@ -9,7 +9,7 @@ define(function(require) {
         postToFindMovies: function(oDataInfo){
 
             require(['hbs!../templates/all-movies'], function(findMoviesTemp) {
-            	$("#allMovies").html(findMoviesTemp(oDataInfo));
+            	$("#allMovies").append(findMoviesTemp(oDataInfo));
 
             });
         },
