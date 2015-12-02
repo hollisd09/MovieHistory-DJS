@@ -19,14 +19,16 @@ define(function(require) {
 
 //Add button
 	   $("body").on("click", ".add", function() {
-	      console.log("find", find);
+
 	      var title = $(this).attr("title");
 	      var image = $(this).attr("image");
 	      var imdbID = $(this).attr("imdbid");
-	      var actors = $(this.Actors);
-	      console.log(actors);
-	      auth.movieAddedtoAll(title, image, imdbID, actors);
-	      auth.movieAddedUnwatched(title,image, imdbID, actors);
+	      var actors = $(this).attr("actors");
+	      var year = $(this).attr("year");
+
+
+	      auth.movieAddedtoAll(title, image, imdbID, actors, year);
+	      auth.movieAddedUnwatched(title, image, imdbID, actors, year);
 	   });
 
 
@@ -35,9 +37,11 @@ define(function(require) {
       var title = $(this).attr("title");
       var image = $(this).attr("image");
       var imdbID = $(this).attr("imdbid");
+      var actors = $(this).attr("actors");
+	  var year = $(this).attr("year");
       console.log(imdbID);
-      auth.movieAddedtoWatched(title, image, imdbID);
-      auth.movieIsWatched(title);
+      auth.movieAddedtoWatched(title, image, imdbID, actors, year);
+      auth.movieIsWatched(title, image, imdbID, actors, year);
    });
 
 //delete button
