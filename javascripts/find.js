@@ -25,7 +25,6 @@ require(
 
                     if (fdbMov === undefined) {
                         populateDom.postToFindMovies(apiData);
-                    
                         return "Finished";
                     }
 
@@ -41,10 +40,15 @@ require(
                             end = mvi;
                         }//End If
                         
+                        populateDom.postToFindMovies(end);
                         console.log("end", end);
-                        populateDom.postToWatchedMovies(end);                   
+
                     }
+
+
+
                 };
+
 
                 var omdbAPICall = function(){
                     var deferred = Q.defer();

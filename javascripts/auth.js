@@ -81,15 +81,16 @@ define(function(require) {
 	},
 
 
+	movieAddedUnwatched: function(title, image, imdbID, actors, year) {
 
-	movieAddedUnwatched: function(title, image, imdbID) {
 		var userClickedAdd = new Firebase('https://movie-history-djs.firebaseio.com/users/' + uid + '/unwatched/' + title);
       
 	        userClickedAdd.set({
 	        					  	title: title,
 	        					  	poster: image,
-
-	        					  	imdbID: imdbID
+	        					  	imdbID: imdbID,
+	        					  	actors: actors,
+	        					  	year: year
 	        					   });
     },
 
@@ -115,13 +116,15 @@ define(function(require) {
 	        					   });
     },    
 
-    movieAddedtoWatched: function(title, image, imdbID) {
+    movieAddedtoWatched: function(title, image, imdbID, actors, year) {
 		var userClickedAdd = new Firebase('https://movie-history-djs.firebaseio.com/users/' + uid + '/watched/' + title);
       
 	        userClickedAdd.set({
 	        					  	title: title,
 	        					  	poster: image,
-	        					  	imdbID: imdbID
+	        					  	imdbID: imdbID,
+	        					  	actors: actors,
+	        					  	year: year
 	        					   });
     },    
 

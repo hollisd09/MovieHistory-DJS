@@ -1,11 +1,15 @@
   
 <div>
-    <div <div class="col-sm-3 col-xs-12">
-      <h4>{{Title}}</h4>
-      <button class="deleteBtn" title="{{title}}" image="{{poster}}">x</button>
-      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#{{imdbID}}"><img src="{{poster}}"></button>
-      <button class="add" title="{{Title}}" image="{{poster}}" imdbID="{{imdbID}}">Add</button>
-    </div>
+
+
+	<div class="col-sm-3 col-xs-12">
+    <h4>{{Title}}</h4>
+  	<!-- Trigger the modal with a button on the poster-->
+
+    <button class="deleteBtn" title="{{title}}" image="{{poster}}">x</button>
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#{{imdbID}}"><img src="{{poster}}"></button>
+    <button class="add" title="{{Title}}" image="{{poster}}" imdbID="{{imdbID}}" actors="{{actors}}" year="{{Year}}">Add</button>
+  </div>
 
 </div>
 
