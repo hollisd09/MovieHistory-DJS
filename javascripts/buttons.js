@@ -41,7 +41,7 @@ define(function(require) {
 	  var year = $(this).attr("year");
       console.log(imdbID);
       auth.movieAddedtoWatched(title, image, imdbID, actors, year);
-      auth.movieIsWatched(title, image, imdbID, actors, year);
+      auth.movieIsWatched(title);
    });
 
 //delete button
