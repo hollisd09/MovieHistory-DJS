@@ -1,6 +1,6 @@
 {{#each this}}
 <div>
-  <div <div class="col-sm-3 col-xs-12">
+  <div class="col-sm-3 col-xs-12">
   	<h4>{{title}}</h4>
     <button class="deleteBtn" title="{{title}}" image="{{poster}}">x</button>
     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#{{imdbID}}"><img src="{{poster}}"></button>
@@ -21,8 +21,8 @@
         <h4 class="modal-title">{{title}}</h4>
       </div>
       <div class="modal-body">
-        <p>{{actors}}</p>
-        <p>{{year}}</p>
+        <p>Actors: {{actors}}</p>
+        <p>Released in {{year}}</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

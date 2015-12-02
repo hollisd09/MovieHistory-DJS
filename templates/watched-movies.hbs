@@ -1,10 +1,11 @@
 {{#each this}}
 <div>
-	<h4>{{title}}</h4>
-  <button class="deleteBtn" title="{{title}}" image="{{poster}}">x</button>
-  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#{{imdbID}}"><img src="{{poster}}"></button>
-	<button class="favorites" title="{{Title}}" image="{{poster}}" imdbID="{{imdbID}}" actors="{{actors}}" year="{{Year}}">Favorites</button>
-	<input id={{@key}} type="number" class="rating" data-min="0" data-max="10" data-step="1" data-show-clear="false" data-show-caption="false" data-size="xs">
+  <div class="col-sm-3 col-xs-12">
+	  <h4>{{title}}</h4>
+	  <button class="deleteBtn" title="{{title}}" image="{{poster}}">x</button>
+	  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#{{imdbID}}"><img src="{{poster}}"></button>
+		<button class="favorites" title="{{title}}" image="{{poster}}" imdbID="{{imdbID}}" actors="{{actors}}" year="{{Year}}">Favorites</button>
+	</div>
 </div>
 
 
