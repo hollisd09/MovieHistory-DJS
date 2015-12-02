@@ -27,6 +27,7 @@ define(function(require) {
 
  return {
  	newUserInfo: toUpdateUserInfo,
+ 	
  	getFirebaseMovies : function (fxn, api){
 		var myFirebaseRef = new Firebase("https://movie-history-djs.firebaseio.com/users/" + uid);
 	  	myFirebaseRef.on("value", function(snapshot) {
@@ -53,6 +54,15 @@ define(function(require) {
 		  var ref = new Firebase("https://movie-history-djs.firebaseio.com/users/" + uid);
 		  console.log("authData", authData);
 		  ref.set(authData);
+		  console.log("authData.uid", authData.uid);
+
+		  var fbRef = new Firebase("https://movie-history-djs.firebaseio.com/users/" + authData.uid);
+	     	console.log("returning", uid);
+			console.log("Authenticated successfully with payload:", authData);
+			
+			updatedUserInfo = toUpdateUserInfo();
+  			console.log("updatedUserInfo", updatedUserInfo);
+
 
 		  } 
 		});

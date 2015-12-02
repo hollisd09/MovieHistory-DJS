@@ -36,9 +36,9 @@ define(function(require) {
    });
 
 //delete button
-  $("body").on("click", ".deleteBtn", function() {
-    var title = $(this).attr("title");
-    auth.deleteMovie(title);
-  });
+  	$("body").on("click", ".deleteBtn", function() {
+	    var title = $(this).attr("title");
+	    auth.deleteMovie(title);
+  	});
 
  });
