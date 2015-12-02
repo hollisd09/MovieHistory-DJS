@@ -5,6 +5,7 @@ require(
 
       $('allMoviesHere').hide();
         $('#navBar').on("keypress", function(){
+            console.log("happening!!")
             if (event.which == 13 ) {
                 var searchUrl, searchMovie, oData, mData, fullText, movieKey;
                 var moviesFromApi = [];

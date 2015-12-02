@@ -9,7 +9,7 @@ define(function(require) {
         postToFindMovies: function(oDataInfo){
 
             require(['hbs!../templates/all-movies'], function(findMoviesTemp) {
-            	$("#allMovies").append(findMoviesTemp(oDataInfo));
+            	$("#allMovies").html(findMoviesTemp(oDataInfo));
 
             });
         },
@@ -36,7 +36,7 @@ define(function(require) {
 
             require(['hbs!../templates/watched-movies'], function(findMoviesTemp) {
             	$("#watchedMovies").html(findMoviesTemp(oDataInfo));
-                $("#imdbID").rating();
+                
 
             });
         },

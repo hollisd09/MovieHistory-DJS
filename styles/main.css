@@ -11,7 +11,7 @@ h1 {
 }
 
 #entry-screen {
-  margin-top: 200px;
+  /*margin-top: 200px;*/
 }
 
 .movieHistory {
@@ -66,6 +66,21 @@ input[type="password"] {
   color: rgb(217,91,67);
   border-radius: 5px;
   background-color: transparent;
+}
+
+.btn-info {
+  width: 208px;
+  height: 314px;
+  background-color: black;
+  border-color: transparent;
+}
+
+.pageLinks {
+  display: block;
+}
+
+.navbar {
+  width: 100%;
 }
 
 
